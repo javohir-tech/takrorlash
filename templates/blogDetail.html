@@ -10,8 +10,11 @@
     {{post.text}}
 </p>
 <div>
-    <a href="{%url  'bolg_edit' post.pk %}">
+    <a href="{%url  'blog_edit' post.pk %}">
         tahrirlash
+    </a>
+    <a href="{%url  'blog_delete' post.pk %}">
+        ochirish
     </a>
 </div>
 {%endblock%}

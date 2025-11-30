@@ -12,9 +12,22 @@
 <body>
     <div class="navbar">
         <a href="{% url 'blog'%}">
-            <h1>Blog sahifa</h1>
+            <h1>Bosh sahifa</h1>
         </a>
         <a href="{% url 'createblog' %}">Blog qoshish</a>
+    </div>
+    <div>
+        {% if user.is_authenticated %}
+        <p>Hush kelipsiz {{user.username}}</p>
+        <form action="{% url 'logout'%}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Chiqish</button>
+        </form>
+        {%else%}
+        <p>saytga kirish</p>
+        <a href="{% url 'login' %}">kirish</a>
+        {% endif%}
     </div>
     {%block content%}
 

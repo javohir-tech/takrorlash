@@ -1,16 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css'%}">
     <title>Document</title>
 </head>
 
 <body>
-    <a href="{% url 'blog'%}">
-        <h1>Blog sahifa</h1>
-    </a>
+    <div class="navbar">
+        <a href="{% url 'blog'%}">
+            <h1>Blog sahifa</h1>
+        </a>
+        <a href="{% url 'createblog' %}">Blog qoshish</a>
+    </div>
     {%block content%}
 
     {%endblock content%}

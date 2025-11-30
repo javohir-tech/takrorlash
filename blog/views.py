@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DeleteView
+from django.views.generic.edit import CreateView 
 from .models import BlogPosts
 
 class BlogPostView(ListView) :
@@ -19,5 +20,10 @@ class BlogDetailView(DeleteView) :
         context=  super().get_context_data(**kwargs)
         context['post'] = context['object']
         return context
+    
+class CreateBlogView(CreateView):
+    model = BlogPosts;
+    template_name = "createblog.html"
+    fields = ['title' , 'text' , 'author']
 
 # Create your views here.
